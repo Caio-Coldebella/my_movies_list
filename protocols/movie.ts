@@ -6,3 +6,7 @@ export type MovieType = {
     review?: string,
     grade?: number
 };
+
+export type Platform = {
+    name: string
+}
