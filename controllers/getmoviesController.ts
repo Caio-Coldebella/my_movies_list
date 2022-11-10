@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { MovieType } from "../protocols/movie";
-import { getMoviesRepo } from "../respositories/respositores.js";
+import { Movie } from "../protocols/movie";
+import { getMoviespergenreRepo, getMoviesperplatformRepo, getMoviesRepo } from "../respositories/respositores.js";
 
 export async function getmovies(req: Request,res: Response){
     try {
@@ -12,6 +12,22 @@ export async function getmovies(req: Request,res: Response){
     }
 }
 
-export async function postmovie(req: Request, res: Response) {
-    const data = req.body as MovieType;
+export async function moviesperplatform(req: Request, res: Response) {
+    try {
+        const data =await getMoviesperplatformRepo();
+        res.send(data.rows);
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+}
+
+export async function moviespergenre(req: Request, res: Response) {
+    try {
+        const data = await getMoviespergenreRepo();
+        res.send(data.rows);
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
 }

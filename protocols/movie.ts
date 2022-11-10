@@ -1,4 +1,5 @@
-export type MovieType = {
+export type MovieEntity = {
+    id: number,
     name: string,
     platformId : number,
     genreId: number,
@@ -7,6 +8,13 @@ export type MovieType = {
     grade?: number
 };
 
-export type Platform = {
+export type Movie = Omit<MovieEntity, "id">
+
+export type MovieUpdate = Partial<MovieEntity>
+
+export type PlatformEntity = {
+    id: number,
     name: string
 }
+
+export type Platform = Omit<PlatformEntity, "id">

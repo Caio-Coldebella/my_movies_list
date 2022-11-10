@@ -4,7 +4,7 @@ export const MovieSchema = Joi.object({
     name: Joi.string().min(1).required(),
     platformId : Joi.number().required(),
     genreId: Joi.number().required(),
-    status: Joi.string().min(1).required(),
+    status: Joi.string(),
     review: Joi.string(),
     grade: Joi.number()
 });
