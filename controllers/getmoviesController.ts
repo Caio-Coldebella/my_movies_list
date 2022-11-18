@@ -5,7 +5,7 @@ import { getMoviespergenreRepo, getMoviesperplatformRepo, getMoviesRepo } from "
 export async function getmovies(req: Request,res: Response){
     try {
         const data = await getMoviesRepo();
-        res.send(data.rows);
+        res.send(data);
     } catch (error) {
         console.error(error);
         res.sendStatus(500);
@@ -15,7 +15,7 @@ export async function getmovies(req: Request,res: Response){
 export async function moviesperplatform(req: Request, res: Response) {
     try {
         const data =await getMoviesperplatformRepo();
-        res.send(data.rows);
+        res.send(data);
     } catch (error) {
         console.error(error);
         res.sendStatus(500);
@@ -25,7 +25,7 @@ export async function moviesperplatform(req: Request, res: Response) {
 export async function moviespergenre(req: Request, res: Response) {
     try {
         const data = await getMoviespergenreRepo();
-        res.send(data.rows);
+        res.send(data);
     } catch (error) {
         console.error(error);
         res.sendStatus(500);

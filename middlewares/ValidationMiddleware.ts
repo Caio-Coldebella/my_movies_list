@@ -33,7 +33,7 @@ export async function MovieUpdateMiddleware(req: Request, res: Response, next: N
         return;
     }
     const exists = await selectMovieRepo(obj.id);
-    if(exists.rowCount === 0){
+    if(!exists){
         res.sendStatus(404);
         return;
     }

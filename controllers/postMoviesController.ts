@@ -1,9 +1,9 @@
-import { MovieUpdate, Platform } from "../protocols/movie";
+import { MovieInsert, MovieUpdate, Platform } from "../protocols/movie";
 import { Request, Response } from "express";
 import { postGenreRepo, postMovieRepo, postPlatformRepo } from "../respositories/respositores.js";
 
 export async function postmovie(req: Request, res: Response) {
-    const data = res.locals.data as MovieUpdate;
+    const data = res.locals.data as MovieInsert;
     try {
         await postMovieRepo(data);
         res.sendStatus(201);

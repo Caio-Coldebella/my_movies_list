@@ -9,6 +9,7 @@ export type MovieEntity = {
 };
 
 export type Movie = Omit<MovieEntity, "id">
+export type MovieInsert = Omit<MovieEntity, "id"|"status">
 
 export type MovieUpdate = Partial<MovieEntity>
 

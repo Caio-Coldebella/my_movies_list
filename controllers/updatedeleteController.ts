@@ -21,7 +21,7 @@ export async function deleteMovie(req: Request, res: Response) {
     }
     try {
         const exists = await selectMovieRepo(idnumber);
-        if(exists.rowCount === 0){
+        if(!exists){
             res.sendStatus(404);
             return;
         }   
